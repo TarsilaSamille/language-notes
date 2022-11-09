@@ -1,0 +1,3 @@
+# language notes
+
+npm instakk

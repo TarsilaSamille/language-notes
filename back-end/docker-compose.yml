@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:10.4-alpine
+    ports:
+      - "5446:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: language_notes
+    volumes:
+      - postgres-data:/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    ports:
+      - "5050:5050"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+volumes:
+  postgres-data:
