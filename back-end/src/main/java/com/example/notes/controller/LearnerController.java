@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/teacher")
+@RequestMapping("/learner")
 public class LearnerController extends UserController<Learner> {
 
 }

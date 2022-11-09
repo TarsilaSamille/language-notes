@@ -1,17 +1,17 @@
-import Container from '../components/container'
-import React, { useEffect, useState } from 'react';
-import Layout from '../components/layout'
-import Head from 'next/head';
-import { useAuth } from '../lib/context/context';
-import Router from 'next/router'
-import PostItem from '../components/hero-post'
-import MoreStories from '../components/more-stories';
-import { Button } from '../components/molecules/input';
+import Container from "../components/molecules/container"
+import React, { useEffect, useState } from "react"
+import Layout from "../components/molecules/layout"
+import Head from "next/head"
+import { useAuth } from "../lib/context/context"
+import Router from "next/router"
+import PostItem from "../components/molecules/post/hero-post"
+import MoreStories from "../components/molecules/more-stories"
+import { Button } from "../components/molecules/input"
 
 export default function Index() {
-  const { user } = useAuth();
-  const [post, setPost] = useState({});
-  const [morePosts, setMorePosts] = useState([]);
+  const { user } = useAuth()
+  const [post, setPost] = useState({})
+  const [morePosts, setMorePosts] = useState([])
 
   useEffect(() => {
     if (user?.notes && user?.notes.length > 0) {
@@ -19,7 +19,7 @@ export default function Index() {
       setPost(user?.notes[0])
       setMorePosts(user?.notes?.slice(1))
     }
-  }, [user]);
+  }, [user])
   return (
     <>
       <Layout>
@@ -28,9 +28,14 @@ export default function Index() {
         </Head>
         <Container>
           <p className="ml-auto text-sm text-gray-500 underline mt-8 text-right">
-            <Button onClick={() => {
-              Router.push('/add-note')
-            }} name={"Adicionar Notas"} bgColor="#ccc" charColor="#000"></Button>
+            <Button
+              onClick={() => {
+                Router.push("/add-note")
+              }}
+              name={"Adicionar Notas"}
+              bgColor="#ccc"
+              charColor="#000"
+            ></Button>
           </p>
 
           {post && (
@@ -44,11 +49,11 @@ export default function Index() {
             />
           )}
 
-          {morePosts?.length > 0 && <MoreStories author={user} posts={morePosts} />}
-
+          {morePosts?.length > 0 && (
+            <MoreStories author={user} posts={morePosts} />
+          )}
         </Container>
       </Layout>
     </>
   )
 }
-

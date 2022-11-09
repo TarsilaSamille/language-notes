@@ -1,24 +1,24 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts, getPostById } from '../../lib/api'
-import PostTitle from '../../components/post-title'
-import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
-import { useAuth } from '../../lib/context/context'
-import { useEffect } from 'react'
+import { useRouter } from "next/router"
+import ErrorPage from "next/error"
+import Container from "../../components/molecules/container"
+import PostBody from "../../components/molecules/post/post-body"
+import Header from "../../components/molecules/header"
+import PostHeader from "../../components/molecules/post/post-header"
+import Layout from "../../components/molecules/layout"
+import { getPostBySlug, getAllPosts, getPostById } from "../../lib/api"
+import PostTitle from "../../components/molecules/post/post-title"
+import Head from "next/head"
+import { CMS_NAME } from "../../lib/constants"
+import markdownToHtml from "../../lib/markdownToHtml"
+import { useAuth } from "../../lib/context/context"
+import { useEffect } from "react"
 
 export default function Post({ post, morePosts, preview }) {
-  const { user } = useAuth();
+  const { user } = useAuth()
   const router = useRouter()
   useEffect(() => {
     console.log(user)
-  }, [user]);
+  }, [user])
   if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />
   }
@@ -48,7 +48,7 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const post = await getPostById(params.slug)
-  const content = await markdownToHtml(post.content || '')
+  const content = await markdownToHtml(post.content || "")
   console.log(post, "aaaa")
   return {
     props: {

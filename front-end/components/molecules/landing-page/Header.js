@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react"
 import {
   Container,
   Collapse,
@@ -6,33 +6,37 @@ import {
   Row,
   Nav,
   NavItem,
-  NavLink
-} from 'reactstrap';
+  NavLink,
+} from "reactstrap"
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [sticky, setSticky] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false)
+  const [sticky, setSticky] = useState(false)
+  const toggle = () => setIsOpen(!isOpen)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-  });
+    window.addEventListener("scroll", handleScroll)
+  })
 
   const handleScroll = () => {
     if (window.scrollY > 90) {
-      setSticky(true);
+      setSticky(true)
     } else if (window.scrollY < 90) {
-      setSticky(false);
+      setSticky(false)
     }
   }
 
   return (
-    <div className={`mb-1 header${sticky ? ' sticky' : ''}`}>
+    <div className={`mb-1 header${sticky ? " sticky" : ""}`}>
       <Navbar light expand="md">
         <Container>
           <Row className="text-center mb-2">
-          <h1 href="/" className="font-bold text-5xl text-gray-900">Language Notes</h1>
-          <p className=" font-base text-base text-gray-600">blog de anotações de estudo</p>
+            <h1 href="/" className="font-bold text-5xl text-gray-900">
+              Language Notes
+            </h1>
+            <p className=" font-base text-base text-gray-600">
+              blog de anotações de estudo de linguagens
+            </p>
           </Row>
           <Collapse isOpen={isOpen} navbar>
             <Nav className="m-auto" navbar>
@@ -41,9 +45,6 @@ const Header = () => {
               </NavItem>
               <NavItem>
                 <NavLink href="/#history">História</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/#service">Serviços</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/#team">Equipe</NavLink>
@@ -59,7 +60,7 @@ const Header = () => {
         </Container>
       </Navbar>
     </div>
-  );
+  )
 }
 
-export default Header;
+export default Header

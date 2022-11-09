@@ -1,9 +1,8 @@
-// import Layout from '../components/layout'
-import Layout from "../components/layout";
-import Hero from "../components-landing-page/Hero";
-import Team from "../components-landing-page/Team";
-import Steps from "../components-landing-page/Steps";
-import History from "../components-landing-page/History";
+import Layout from "../components/molecules/layout"
+import Hero from "../components/molecules/landing-page/Hero"
+import Team from "../components/molecules/landing-page/Team"
+import Steps from "../components/molecules/landing-page/Steps"
+import History from "../components/molecules/landing-page/History"
 
 export default function Index({ allPosts }) {
   return (
@@ -15,5 +14,5 @@ export default function Index({ allPosts }) {
         <Team />
       </Layout>
     </>
-  );
+  )
 }

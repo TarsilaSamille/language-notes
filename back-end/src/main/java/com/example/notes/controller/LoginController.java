@@ -1,6 +1,6 @@
 package com.example.notes.controller;
 
-import com.example.notes.model.generics.User;
+import com.example.notes.model.Learner;
 import com.example.notes.service.ServiceLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ public class LoginController {
   ServiceLogin serviceLogin;
 
   @PostMapping("/")
-  public User login(@RequestBody User lf) {
+  public Learner login(@RequestBody Learner lf) {
     return serviceLogin.login(lf);
   }
 }

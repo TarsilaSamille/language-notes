@@ -1,16 +1,16 @@
-import axios from "axios";
+import axios from "axios"
 
 export default class NotesApi {
   constructor() {
     this.api = axios.create({
-      baseURL: "http://localhost:8080/note/",
-    });
-    this.pathRest = `http://localhost:8080/note/`;
+      baseURL: "http://localhost:8080/language-note/",
+    })
+    this.pathRest = `http://localhost:8080/language-note/`
     this.auth = {
       headers: {
         "Content-Type": "application/json",
       },
-    };
+    }
   }
 
   getNotes() {
@@ -18,13 +18,13 @@ export default class NotesApi {
       this.api
         .get(`/`, this.auth)
         .then((response) => {
-          resolve(response.data);
+          resolve(response.data)
         })
         .catch((e) => {
-          reject(e);
-          console.log(e);
-        });
-    });
+          reject(e)
+          console.log(e)
+        })
+    })
   }
 
   getNote(id) {
@@ -32,26 +32,25 @@ export default class NotesApi {
       this.api
         .get(`/${id}`, this.auth)
         .then((response) => {
-          resolve(response.data);
+          resolve(response.data)
         })
         .catch((e) => {
-          reject(e);
-          console.log(e);
-        });
-    });
+          reject(e)
+          console.log(e)
+        })
+    })
   }
   setNote(data) {
     return new Promise((resolve, reject) => {
       this.api
         .post(`/`, data, this.auth)
         .then((response) => {
-          resolve(response.data);
-          return response.data;
+          resolve(response.data)
+          return response.data
         })
         .catch((e) => {
-          reject(e);
-        });
-    });
+          reject(e)
+        })
+    })
   }
-
 }

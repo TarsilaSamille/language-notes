@@ -1,6 +1,6 @@
-import Footer from "./footer";
-import Meta from "../components/meta";
-import Header from "../components-landing-page/Header";
+import Footer from "./footer"
+import Meta from "./meta"
+import Header from "./landing-page/Header"
 
 export default function Layout({ preview, children }) {
   return (
@@ -12,5 +12,5 @@ export default function Layout({ preview, children }) {
       </div>
       <Footer />
     </>
-  );
+  )
 }

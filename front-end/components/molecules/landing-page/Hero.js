@@ -1,7 +1,7 @@
-import React from "react";
-import { Container, Row, Col } from "reactstrap";
-import Router from 'next/router';
-import {Button} from '../components/molecules/input';
+import React from "react"
+import { Container, Row, Col } from "reactstrap"
+import Router from "next/router"
+import { Button } from "../input"
 
 const Hero = () => {
   return (
@@ -14,15 +14,19 @@ const Hero = () => {
                 Language Notes
               </p>
               <h1 className="mb-4 font-weight-normal line-height-1_4 mb-5">
-                Aprenda ensinando
+                aprenda lendo
               </h1>
               <p className="text-muted mb-4 pb-2">
-                Uma aplicação web para que estudantes dos mais variados tópicos
-                possam postar artigos, infográficos e mapas mentais dos tópicos
-                que estão aprendendo, recebendo feedback de erros e acertos, as
-                notas ficam disponíveis para outros estudante.
+                Uma aplicação web para que estudantes de linguagens possam
+                postar artigos, infográficos e mapas mentais dos tópicos que
+                estão aprendendo, recebendo feedback de erros e acertos, as
+                anotações ficam disponíveis para outros estudantes.
               </p>
-              <Button name2={`Login`} onClick2={() => Router.push('/login-page')} icon="&#8594;"/>
+              <Button
+                name2={`Login`}
+                onClick2={() => Router.push("/login-page")}
+                icon="&#8594;"
+              />
             </div>
           </Col>
           <Col lg={6}>
@@ -37,7 +41,7 @@ const Hero = () => {
         </Row>
       </Container>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

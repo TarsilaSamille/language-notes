@@ -1,7 +1,6 @@
 package com.example.notes.service;
 
-import com.example.notes.model.generics.User;
-import com.example.notes.service.generics.UserService;
+import com.example.notes.model.Learner;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -17,7 +16,7 @@ public class ServiceLogin {
   @Autowired
   ServiceLogin serviceLogin;
   @Autowired
-  UserService serviceUser;
+  LearnerService serviceLearner;
 
   public static byte[] getSHA(String input) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -36,8 +35,8 @@ public class ServiceLogin {
   }
 
   @PostMapping("/")
-  public User login(@RequestBody User lf) {
-    User usuario = serviceUser.findByEmail(lf.getEmail());
+  public Learner login(@RequestBody Learner lf) {
+    Learner usuario = serviceLearner.findByEmail(lf.getEmail());
     if (usuario != null) {
       try {
         String encryptedLoginPassword = toHexString(getSHA(usuario.getPassword()));

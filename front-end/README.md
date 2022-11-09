@@ -1,3 +1,13 @@
 # language notes
 
-npm instakk
+yarn 
+yarn dev
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/TarsilaSamille/language-notes.git
+git push -u origin main
+
+https://github.dev/nextauthjs/next-auth-example
